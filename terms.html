@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - Atlas Music</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .terms-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .terms-header {
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .effective-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .terms-content h2 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .terms-content h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: var(--primary-color);
+            margin-right: 15px;
+            border-radius: 2px;
+        }
+
+        .terms-content p,
+        .terms-content li {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .terms-content ul {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+
+        .terms-content li {
+            margin-bottom: 12px;
+        }
+
+        .table-of-contents {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .table-of-contents h5 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .toc-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: block;
+            padding: 5px 0;
+        }
+
+        .toc-link:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 500px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-color);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .terms-container {
+                margin: 20px;
+                padding: 30px;
+            }
+
+            .back-btn {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Dynamic Background Elements -->
+    <div class="bg-mesh">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <a href="login.html" class="back-btn">
+        <i class="bi bi-arrow-left me-2"></i> Back to Atlas Music
+    </a>
+
+    <div class="container">
+        <div class="terms-container">
+            <div class="terms-header text-center">
+                <div class="effective-date mb-2">Effective: April 30, 2026</div>
+                <h1 class="display-4 fw-bold mb-3">Terms and Conditions</h1>
+                <p class="text-secondary mb-0">
+                    Last updated: April 30, 2026 &nbsp;&middot;&nbsp; Music App Inc.
+                </p>
+            </div>
+
+            <div class="intro-box mb-5">
+                <p class="lead text-white" style="font-weight: 500;">
+                    Please read these terms carefully before using Music App. By creating an account or using our
+                    services, you agree to be bound by these terms.
+                </p>
+            </div>
+
+            <div class="table-of-contents">
+                <h5>Table of contents</h5>
+                <ul class="toc-list">
+                    <li><a href="#acceptance" class="toc-link">1. Acceptance of terms</a></li>
+                    <li><a href="#registration" class="toc-link">2. Account registration</a></li>
+                    <li><a href="#use" class="toc-link">3. Acceptable use</a></li>
+                    <li><a href="#content" class="toc-link">4. User content</a></li>
+                    <li><a href="#property" class="toc-link">5. Intellectual property</a></li>
+                    <li><a href="#privacy" class="toc-link">6. Privacy</a></li>
+                    <li><a href="#termination" class="toc-link">7. Termination</a></li>
+                    <li><a href="#disclaimers" class="toc-link">8. Disclaimers</a></li>
+                    <li><a href="#liability" class="toc-link">9. Limitation of liability</a></li>
+                    <li><a href="#changes" class="toc-link">10. Changes to terms</a></li>
+                    <li><a href="#contact" class="toc-link">11. Contact us</a></li>
+                </ul>
+            </div>
+
+            <div class="terms-content">
+                <section id="acceptance">
+                    <h2>1. Acceptance of terms</h2>
+                    <p>By accessing or using Music App ("the Service"), you confirm that you are at least 13 years of
+                        age, have read and understood these Terms and Conditions, and agree to be legally bound by them.
+                        If you are using the Service on behalf of an organisation, you represent that you have authority
+                        to bind that organisation to these terms.</p>
+                    <p>If you do not agree with any part of these terms, you must not use our Service.</p>
+                </section>
+
+                <section id="registration">
+                    <h2>2. Account registration</h2>
+                    <p>To access certain features of Music App, you must create an account. When registering, you agree
+                        to:</p>
+                    <ul>
+                        <li>Provide accurate, current, and complete information</li>
+                        <li>Maintain and promptly update your account information</li>
+                        <li>Keep your password confidential and not share it with others</li>
+                        <li>Notify us immediately of any unauthorised use of your account</li>
+                        <li>Accept responsibility for all activity that occurs under your account</li>
+                    </ul>
+                    <p>We reserve the right to refuse registration or cancel accounts at our discretion.</p>
+                </section>
+
+                <section id="use">
+                    <h2>3. Acceptable use</h2>
+                    <p>You agree to use Music App only for lawful purposes. You must not:</p>
+                    <ul>
+                        <li>Upload, share, or distribute content that infringes copyright or other intellectual property
+                            rights</li>
+                        <li>Harass, abuse, or harm other users</li>
+                        <li>Use the Service to transmit spam, malware, or harmful code</li>
+                        <li>Attempt to gain unauthorised access to our systems or other users' accounts</li>
+                        <li>Use automated tools to scrape, crawl, or extract data from the Service</li>
+                        <li>Impersonate any person or entity</li>
+                        <li>Engage in any activity that disrupts or interferes with the Service</li>
+                    </ul>
+                    <p>Violation of these rules may result in immediate termination of your account.</p>
+                </section>
+
+                <section id="content">
+                    <h2>4. User content</h2>
+                    <p>When you upload, submit, or share content on Music App ("User Content"), you retain ownership of
+                        that content. However, by submitting User Content, you grant Music App a worldwide,
+                        non-exclusive, royalty-free licence to use, reproduce, modify, and display your content solely
+                        for the purpose of operating and improving the Service.</p>
+                    <p>You represent and warrant that you own or have the necessary rights to the content you submit,
+                        and that your content does not violate the rights of any third party.</p>
+                    <p>We reserve the right to remove any User Content that we determine, at our sole discretion,
+                        violates these terms or applicable law.</p>
+                </section>
+
+                <section id="property">
+                    <h2>5. Intellectual property</h2>
+                    <p>All content, features, and functionality of Music App — including but not limited to text,
+                        graphics, logos, icons, software, and code — are the exclusive property of Music App Inc. and
+                        are protected by applicable copyright, trademark, and other intellectual property laws.</p>
+                    <p>You may not copy, reproduce, distribute, or create derivative works from any part of the Service
+                        without our prior written consent.</p>
+                </section>
+
+                <section id="privacy">
+                    <h2>6. Privacy</h2>
+                    <p>Your use of Music App is also governed by our Privacy Policy, which is incorporated into these
+                        terms by reference. By using the Service, you consent to the collection and use of your
+                        information as described in our Privacy Policy.</p>
+                    <p>We take your privacy seriously and will never sell your personal data to third parties.</p>
+                </section>
+
+                <section id="termination">
+                    <h2>7. Termination</h2>
+                    <p>You may delete your account at any time from your account settings. Upon deletion, your personal
+                        data will be removed in accordance with our Privacy Policy.</p>
+                    <p>We may suspend or terminate your access to the Service at any time, with or without notice, if we
+                        believe you have violated these terms, applicable law, or for any other reason at our sole
+                        discretion. Upon termination, your right to use the Service will immediately cease.</p>
+                </section>
+
+                <section id="disclaimers">
+                    <h2>8. Disclaimers</h2>
+                    <p>Music App is provided on an "as is" and "as available" basis without warranties of any kind,
+                        either express or implied. We do not warrant that the Service will be uninterrupted, error-free,
+                        or free of viruses or other harmful components.</p>
+                    <p>We do not guarantee the accuracy, completeness, or usefulness of any content available through
+                        the Service.</p>
+                </section>
+
+                <section id="liability">
+                    <h2>9. Limitation of liability</h2>
+                    <p>To the fullest extent permitted by applicable law, Music App Inc. shall not be liable for any
+                        indirect, incidental, special, consequential, or punitive damages — including loss of profits,
+                        data, or goodwill — arising from your use of or inability to use the Service.</p>
+                    <p>Our total liability to you for any claims arising from these terms or your use of the Service
+                        shall not exceed the amount you paid us in the twelve months preceding the claim, or $100,
+                        whichever is greater.</p>
+                </section>
+
+                <section id="changes">
+                    <h2>10. Changes to terms</h2>
+                    <p>We may update these Terms and Conditions from time to time. When we make material changes, we
+                        will notify you by email or by displaying a prominent notice within the Service. Your continued
+                        use of Music App after changes take effect constitutes your acceptance of the revised terms.</p>
+                    <p>We encourage you to review these terms periodically.</p>
+                </section>
+
+                <section id="contact">
+                    <h2>11. Contact us</h2>
+                    <p>If you have any questions about these Terms and Conditions, please contact us at:</p>
+                    <div class="card p-4 mt-3 mb-5 border-0" style="background: rgba(255,255,255,0.03);">
+                        <p class="mb-1 fw-bold text-white">Music App Inc.</p>
+                        <p class="mb-1"><i class="bi bi-envelope-fill me-2 text-primary"></i> alexisabirye558@gmail.com
+                        </p>
+                        <p class="mb-0"><i
+                                class="bi bi-globe me-2 text-primary"></i>https://musicapp-dashboard.vercel.app/terms.html
+                        </p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="text-center mt-5 pt-4 border-top" style="border-color: var(--glass-border) !important;">
+                <p class="text-secondary small">&copy; 2026 Atlas Music - Music App Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
