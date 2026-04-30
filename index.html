@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas Music - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Dynamic Background Elements -->
+    <div class="bg-mesh">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse" id="sidebarMenu">
+                <div class="pt-3 d-flex flex-column" style="min-height: 100%;">
+                    <div class="text-center mb-5 mt-2">
+                        <h3 class="fw-bold mb-0 d-flex align-items-center justify-content-center"
+                            style="color: var(--text-primary);">
+                            <i class="bi bi-soundwave me-2" style="color: var(--primary-color);"></i>
+                            Atlas Music
+                        </h3>
+                    </div>
+
+                    <ul class="nav flex-column mb-auto px-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-view="overview">
+                                <i class="bi bi-grid-1x2-fill me-3"></i> Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-view="all-songs">
+                                <i class="bi bi-music-note-list me-3"></i> All Songs
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-view="my-songs">
+                                <i class="bi bi-collection-play-fill me-3"></i> My Library
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-view="users">
+                                <i class="bi bi-people-fill me-3"></i> Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-view="notifications">
+                                <i class="bi bi-bell-fill me-3"></i> Notifications
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="px-4 pb-4 mt-auto">
+                        <hr style="border-color: var(--glass-border);">
+                        <div class="d-flex align-items-center mb-4 text-white">
+                            <div class="rounded-circle d-flex align-items-center justify-content-center me-3"
+                                style="width:40px; height:40px; background: var(--primary-color); color: #000; font-weight: bold; font-size: 1.2rem;">
+                                <span id="currentUserInitials">A</span>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <span id="currentUserName" class="fw-bold text-truncate"
+                                    style="max-width: 120px;">Admin</span>
+                                <span class="text-secondary" style="font-size: 0.8rem;">Premium</span>
+                            </div>
+                        </div>
+                        <button
+                            class="btn btn-outline-danger w-100 btn-sm rounded-pill d-flex align-items-center justify-content-center py-2"
+                            onclick="logout()">
+                            <i class="bi bi-box-arrow-right me-2"></i> Log Out
+                        </button>
+                    </div>
+                    <!-- Spacer for player bar -->
+                    <div style="height: 100px;"></div>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-5 pt-4 pb-5">
+                
+                <!-- Persistent Header -->
+                <header class="d-flex justify-content-end align-items-center mb-4 pb-3 border-bottom sticky-top" style="border-color: var(--glass-border) !important; background: rgba(18, 18, 18, 0.85); backdrop-filter: blur(12px); z-index: 1020; top: 0; padding-top: 1rem;">
+                    <div class="d-flex align-items-center text-white">
+                        <div class="text-end me-3">
+                            <h6 class="mb-0 fw-bold" id="headerUserName">Loading...</h6>
+                            <div class="d-flex align-items-center justify-content-end mt-1">
+                                <small class="text-secondary" id="headerUserEmail" style="font-size: 0.8rem;">...</small>
+                                <span class="badge ms-2" id="headerUserRole" style="background-color: var(--primary-color); color: #000; font-size: 0.7rem;">USER</span>
+                            </div>
+                        </div>
+                        <div class="rounded-circle d-flex align-items-center justify-content-center shadow-sm"
+                            style="width: 45px; height: 45px; background: rgba(255,255,255,0.1); border: 2px solid var(--primary-color); color: var(--text-primary); font-weight: bold; font-size: 1.2rem;">
+                            <span id="headerUserInitials">?</span>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Overview View -->
+                <div id="view-overview" class="view-section fade-in-up">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 border-bottom"
+                        style="border-color: var(--glass-border) !important;">
+                        <h2 class="h2 fw-bold m-0">Good evening</h2>
+                    </div>
+
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4">
+                            <div class="card stat-card h-100 p-4"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h6 class="text-secondary fw-semibold mb-0">Total Listeners</h6>
+                                    <div class="p-2 rounded-circle glass-panel"
+                                        style="background: rgba(29, 185, 84, 0.1); color: var(--primary-color);">
+                                        <i class="bi bi-people-fill"></i>
+                                    </div>
+                                </div>
+                                <h1 class="display-5 fw-bold mb-0" id="stat-users">--</h1>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card stat-card h-100 p-4"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h6 class="text-secondary fw-semibold mb-0">Platform Tracks</h6>
+                                    <div class="p-2 rounded-circle glass-panel"
+                                        style="background: rgba(74, 20, 140, 0.3); color: #b388ff;">
+                                        <i class="bi bi-music-note-beamed"></i>
+                                    </div>
+                                </div>
+                                <h1 class="display-5 fw-bold mb-0" id="stat-songs">--</h1>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card stat-card h-100 p-4"
+                                style="background: linear-gradient(135deg, rgba(29, 185, 84, 0.2) 0%, rgba(0,0,0,0) 100%); border-color: rgba(29, 185, 84, 0.2);">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h6 class="text-white fw-semibold mb-0">My Uploads</h6>
+                                    <div class="p-2 rounded-circle glass-panel"
+                                        style="background: var(--primary-color); color: #000;">
+                                        <i class="bi bi-cloud-arrow-up-fill"></i>
+                                    </div>
+                                </div>
+                                <h1 class="display-5 fw-bold text-white mb-0" id="stat-my-songs">--</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mb-4">Trending Now</h4>
+                    <div id="overview-trending-container" class="row g-4">
+                        <div class="text-center py-5 text-secondary w-100">
+                            <div class="spinner-border spinner-border-sm" role="status"></div>
+                            <p class="mt-2 small">Loading trends...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- All Songs View -->
+                <div id="view-all-songs" class="view-section d-none fade-in-up">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 border-bottom"
+                        style="border-color: var(--glass-border) !important;">
+                        <h2 class="h2 fw-bold m-0">Explore Music</h2>
+                    </div>
+                    <div id="all-songs-container" class="row g-4">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- My Songs View -->
+                <div id="view-my-songs" class="view-section d-none fade-in-up">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 border-bottom"
+                        style="border-color: var(--glass-border) !important;">
+                        <h2 class="h2 fw-bold m-0">Your Library</h2>
+                        <button class="btn btn-primary d-flex align-items-center" data-bs-toggle="modal"
+                            data-bs-target="#uploadSongModal">
+                            <i class="bi bi-plus-lg me-2"></i> Add Track
+                        </button>
+                    </div>
+                    <div id="my-songs-container" class="row g-4">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- Users View -->
+                <div id="view-users" class="view-section d-none fade-in-up">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 border-bottom"
+                        style="border-color: var(--glass-border) !important;">
+                        <h2 class="h2 fw-bold m-0">Community</h2>
+                    </div>
+                    <div class="card p-0 overflow-hidden">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-secondary fw-normal">Profile</th>
+                                        <th scope="col" class="text-secondary fw-normal">Email Address</th>
+                                        <th scope="col" class="text-secondary fw-normal">Status</th>
+                                        <th scope="col" class="text-secondary fw-normal">Joined</th>
+                                        <th scope="col" class="text-secondary fw-normal text-end">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-table-body">
+                                    <!-- Rendered by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications View -->
+                <div id="view-notifications" class="view-section d-none fade-in-up">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-3 mb-5 border-bottom"
+                        style="border-color: var(--glass-border) !important;">
+                        <h2 class="h2 fw-bold m-0">Push Notifications</h2>
+                    </div>
+                    <div class="card p-4 border-0 shadow" style="background: rgba(255,255,255,0.02); border-radius: 16px;">
+                        <form id="notificationForm">
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Target Type</label>
+                                    <select class="form-select" id="notifTargetType" style="background-color: rgba(0,0,0,0.2); color: white; border-color: rgba(255,255,255,0.1);">
+                                        <option value="topic">Topic</option>
+                                        <option value="token">Single Device (Token)</option>
+                                        <option value="multicast">Multiple Devices (Multicast)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide" id="notifTargetLabel">Topic Name</label>
+                                    <input type="text" class="form-control" id="notifTargetValue" placeholder="e.g. news" required>
+                                    <div class="form-text text-secondary" id="notifTargetHelp">Enter the topic name without any prefix.</div>
+                                </div>
+                            </div>
+                            
+                            <hr style="border-color: rgba(255,255,255,0.1); margin: 2rem 0;">
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Title</label>
+                                    <input type="text" class="form-control" id="notifTitle" placeholder="Notification Title" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Image URL (Optional)</label>
+                                    <input type="url" class="form-control" id="notifImage" placeholder="https://example.com/image.png">
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Body</label>
+                                <textarea class="form-control" id="notifBody" rows="3" placeholder="Notification content..." required></textarea>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Extra Data (Optional JSON)</label>
+                                <textarea class="form-control" id="notifData" rows="2" placeholder='{"key": "value"}' style="font-family: monospace;"></textarea>
+                            </div>
+                            
+                            <div class="text-end mt-4">
+                                <button type="submit" class="btn btn-primary px-5 py-2 fw-bold" id="sendNotifBtn">
+                                    <i class="bi bi-send-fill me-2"></i> Send Notification
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Persistent Now Playing Bar -->
+    <div class="now-playing-bar" id="nowPlayingBar">
+        <div class="d-flex align-items-center" style="width: 30%;">
+            <img src="https://via.placeholder.com/60" id="np-image" alt="Album Art"
+                style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;">
+            <div class="ms-3 text-truncate">
+                <h6 class="mb-1 fw-bold text-white text-truncate" id="np-title">Select a track</h6>
+                <p class="mb-0 text-secondary small text-truncate" id="np-artist">...</p>
+            </div>
+            <button class="btn btn-icon ms-3" title="Save to library"><i class="bi bi-heart"></i></button>
+        </div>
+
+        <div class="d-flex flex-column align-items-center" style="width: 40%;">
+            <div class="player-controls d-flex align-items-center mb-2">
+                <button class="btn btn-icon"><i class="bi bi-shuffle"></i></button>
+                <button class="btn btn-icon"><i class="bi bi-skip-backward-fill"></i></button>
+                <button class="btn btn-icon btn-play shadow" id="playBtn"><i class="bi bi-play-fill"
+                        id="np-play-icon"></i></button>
+                <button class="btn btn-icon"><i class="bi bi-skip-forward-fill"></i></button>
+                <button class="btn btn-icon"><i class="bi bi-repeat"></i></button>
+            </div>
+            <div class="progress-bar-container">
+                <span id="np-current-time">0:00</span>
+                <div class="progress-track" id="progress-track">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+                    <div class="progress-thumb" id="progress-thumb" style="left: 0%;"></div>
+                </div>
+                <span id="np-total-time">0:00</span>
+            </div>
+            <audio id="audioPlayer" src=""></audio>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-end" style="width: 30%;">
+            <button class="btn btn-icon me-2"><i class="bi bi-music-note-list"></i></button>
+            <button class="btn btn-icon me-2"><i class="bi bi-speaker"></i></button>
+            <i class="bi bi-volume-up text-secondary me-2"></i>
+            <div class="progress-track" style="width: 100px;">
+                <div class="progress-fill" style="width: 70%;"></div>
+                <div class="progress-thumb" style="left: 70%;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Song Modal -->
+    <div class="modal fade" id="uploadSongModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-white border-0">
+                <div class="modal-header border-bottom-0 pt-4 pb-0 px-4">
+                    <h4 class="modal-title fw-bold">Add to Library</h4>
+                    <button type="button" class="btn-close btn-close-white opacity-50" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="uploadSongForm">
+                        <div class="mb-3">
+                            <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Track
+                                Name</label>
+                            <input type="text" class="form-control" id="songName" placeholder="e.g. Starboy" required>
+                        </div>
+                        <div class="mb-3">
+                            <label
+                                class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Artist</label>
+                            <input type="text" class="form-control" id="artistName" placeholder="e.g. The Weeknd"
+                                required>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label
+                                    class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Audio
+                                    File</label>
+                                <input type="file" class="form-control" id="songFile" accept="audio/*,video/*" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label
+                                    class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Cover
+                                    Art</label>
+                                <input type="file" class="form-control" id="thumbnailFile" accept="image/*" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Vibe
+                                Color (Hex)</label>
+                            <div class="d-flex align-items-center">
+                                <input type="color" class="form-control form-control-color p-1 me-3" id="hexCode"
+                                    value="#1DB954" title="Choose your color"
+                                    style="width: 50px; height: 50px; border-radius: 12px; cursor: pointer;">
+                                <span class="text-secondary small">This color will be used for accents</span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-3 mt-2" id="uploadBtn">
+                            Upload Track
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner-glow mb-3"></div>
+        <p class="text-white fw-bold">Processing...</p>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+
+</html>
