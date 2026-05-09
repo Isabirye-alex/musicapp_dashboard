@@ -75,7 +75,11 @@
                             </div>
                         </div>
                         <div class="mb-3 text-center">
-                            <a href="terms.html" class="text-secondary small text-decoration-none hover-white">Terms & Conditions</a>
+                            <a href="terms.html"
+                                class="text-secondary small text-decoration-none hover-white me-3">Terms &
+                                Conditions</a>
+                            <a href="privacy.html" class="text-secondary small text-decoration-none hover-white">Privacy
+                                Policy</a>
                         </div>
                         <button
                             class="btn btn-outline-danger w-100 btn-sm rounded-pill d-flex align-items-center justify-content-center py-2"
@@ -90,15 +94,18 @@
 
             <!-- Main content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-5 pt-4 pb-5">
-                
+
                 <!-- Persistent Header -->
-                <header class="d-flex justify-content-end align-items-center mb-4 pb-3 border-bottom sticky-top" style="border-color: var(--glass-border) !important; background: rgba(18, 18, 18, 0.85); backdrop-filter: blur(12px); z-index: 1020; top: 0; padding-top: 1rem;">
+                <header class="d-flex justify-content-end align-items-center mb-4 pb-3 border-bottom sticky-top"
+                    style="border-color: var(--glass-border) !important; background: rgba(18, 18, 18, 0.85); backdrop-filter: blur(12px); z-index: 1020; top: 0; padding-top: 1rem;">
                     <div class="d-flex align-items-center text-white">
                         <div class="text-end me-3">
                             <h6 class="mb-0 fw-bold" id="headerUserName">Loading...</h6>
                             <div class="d-flex align-items-center justify-content-end mt-1">
-                                <small class="text-secondary" id="headerUserEmail" style="font-size: 0.8rem;">...</small>
-                                <span class="badge ms-2" id="headerUserRole" style="background-color: var(--primary-color); color: #000; font-size: 0.7rem;">USER</span>
+                                <small class="text-secondary" id="headerUserEmail"
+                                    style="font-size: 0.8rem;">...</small>
+                                <span class="badge ms-2" id="headerUserRole"
+                                    style="background-color: var(--primary-color); color: #000; font-size: 0.7rem;">USER</span>
                             </div>
                         </div>
                         <div class="rounded-circle d-flex align-items-center justify-content-center shadow-sm"
@@ -224,46 +231,63 @@
                         style="border-color: var(--glass-border) !important;">
                         <h2 class="h2 fw-bold m-0">Push Notifications</h2>
                     </div>
-                    <div class="card p-4 border-0 shadow" style="background: rgba(255,255,255,0.02); border-radius: 16px;">
+                    <div class="card p-4 border-0 shadow"
+                        style="background: rgba(255,255,255,0.02); border-radius: 16px;">
                         <form id="notificationForm">
                             <div class="row mb-4">
                                 <div class="col-md-4">
-                                    <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Target Type</label>
-                                    <select class="form-select" id="notifTargetType" style="background-color: rgba(0,0,0,0.2); color: white; border-color: rgba(255,255,255,0.1);">
+                                    <label
+                                        class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Target
+                                        Type</label>
+                                    <select class="form-select" id="notifTargetType"
+                                        style="background-color: rgba(0,0,0,0.2); color: white; border-color: rgba(255,255,255,0.1);">
                                         <option value="topic">Topic</option>
                                         <option value="token">Single Device (Token)</option>
                                         <option value="multicast">Multiple Devices (Multicast)</option>
                                     </select>
                                 </div>
                                 <div class="col-md-8">
-                                    <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide" id="notifTargetLabel">Topic Name</label>
-                                    <input type="text" class="form-control" id="notifTargetValue" placeholder="e.g. news" required>
-                                    <div class="form-text text-secondary" id="notifTargetHelp">Enter the topic name without any prefix.</div>
+                                    <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide"
+                                        id="notifTargetLabel">Topic Name</label>
+                                    <input type="text" class="form-control" id="notifTargetValue"
+                                        placeholder="e.g. news" required>
+                                    <div class="form-text text-secondary" id="notifTargetHelp">Enter the topic name
+                                        without any prefix.</div>
                                 </div>
                             </div>
-                            
+
                             <hr style="border-color: rgba(255,255,255,0.1); margin: 2rem 0;">
-                            
+
                             <div class="row mb-3">
                                 <div class="col-md-6 mb-3 mb-md-0">
-                                    <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Title</label>
-                                    <input type="text" class="form-control" id="notifTitle" placeholder="Notification Title" required>
+                                    <label
+                                        class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Title</label>
+                                    <input type="text" class="form-control" id="notifTitle"
+                                        placeholder="Notification Title" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Image URL (Optional)</label>
-                                    <input type="url" class="form-control" id="notifImage" placeholder="https://example.com/image.png">
+                                    <label
+                                        class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Image
+                                        URL (Optional)</label>
+                                    <input type="url" class="form-control" id="notifImage"
+                                        placeholder="https://example.com/image.png">
                                 </div>
                             </div>
                             <div class="mb-4">
-                                <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Body</label>
-                                <textarea class="form-control" id="notifBody" rows="3" placeholder="Notification content..." required></textarea>
+                                <label
+                                    class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Body</label>
+                                <textarea class="form-control" id="notifBody" rows="3"
+                                    placeholder="Notification content..." required></textarea>
                             </div>
-                            
+
                             <div class="mb-4">
-                                <label class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Extra Data (Optional JSON)</label>
-                                <textarea class="form-control" id="notifData" rows="2" placeholder='{"key": "value"}' style="font-family: monospace;"></textarea>
+                                <label
+                                    class="form-label text-secondary small text-uppercase fw-bold tracking-wide">Extra
+                                    Data (Optional JSON)</label>
+                                <textarea class="form-control" id="notifData" rows="2" placeholder='{"key": "value"}'
+                                    style="font-family: monospace;"></textarea>
                             </div>
-                            
+
                             <div class="text-end mt-4">
                                 <button type="submit" class="btn btn-primary px-5 py-2 fw-bold" id="sendNotifBtn">
                                     <i class="bi bi-send-fill me-2"></i> Send Notification

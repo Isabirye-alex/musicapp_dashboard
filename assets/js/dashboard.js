@@ -112,10 +112,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const modal = bootstrap.Modal.getInstance(modalEl);
                 modal.hide();
 
-                // Reload My Songs View if active
+                // Refresh relevant views and stats
                 if (document.getElementById('view-my-songs').classList.contains('d-none') === false) {
                     loadDataForView('my-songs');
                 }
+                loadDataForView('overview');
+                loadDataForView('all-songs');
                 window.showToast('Success', 'Track uploaded successfully!', 'success');
             } catch (error) {
                 window.showToast('Upload Failed', error.message, 'error');
@@ -456,11 +458,11 @@ window.deleteSong = async function (songId) {
             // Refresh views
             if (!document.getElementById('view-all-songs').classList.contains('d-none')) {
                 loadDataForView('all-songs');
-            } else if (!document.getElementById('view-my-songs').classList.contains('d-none')) {
-                loadDataForView('my-songs');
-            } else {
-                loadDataForView('overview');
             }
+            if (!document.getElementById('view-my-songs').classList.contains('d-none')) {
+                loadDataForView('my-songs');
+            }
+            loadDataForView('overview');
         } catch (e) {
             window.showToast('Delete Failed', e.message, 'error');
         }
